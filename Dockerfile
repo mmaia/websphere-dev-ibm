@@ -22,6 +22,9 @@ MAINTAINER Marcos Maia "mpais@br.ibm.com / maia.marcos@gmail.com"
 #copy files to docker image
 COPY *.zip tmp/
 
-#preparing the files to install, unzipping and creating correct directory structures for WAS and IBM JDK
-RUN cd tmp && mkdir was && mkdir jdk && unzip was_part1.zip -d was && unzip was_part2.zip -d was && unzip was_part3.zip -d was \
-    && unzip was.java7_part1.zip -d jdk && unzip was.java7_part2.zip -d jdk && unzip was.java7_part3.zip -d jdk
+#preparing the files to install, unzipping and creating correct directory structures for WAS and IBM JDK and deleting the
+#zip files that are not necessary anymore so disk image doesn't get without space
+RUN cd tmp && mkdir was && mkdir jdk && unzip was_part1.zip -d was && rm -rf was_part1.zip && unzip was_part2.zip -d was  \
+    && rm -rf was_part2.zip && unzip was_part3.zip -d was && rm -rf was_part3.zip \
+    && unzip was.java7_part1.zip -d jdk && rm -rf was.java7_part1.zip && unzip was.java7_part2.zip -d jdk && rm -rf was.java7_part2.zip \
+    && unzip was.java7_part3.zip -d jdk && rm -rf was.java7_part3.zip
