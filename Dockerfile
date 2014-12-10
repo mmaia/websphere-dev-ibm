@@ -23,3 +23,5 @@ MAINTAINER Marcos Maia "mpais@br.ibm.com / maia.marcos@gmail.com"
 COPY *.zip tmp/
 
 #preparing the files to install, unzipping and creating correct directory structures for WAS and IBM JDK
+RUN cd tmp && mkdir was && mkdir jdk && unzip was_part1.zip -d was && unzip was_part2.zip -d was && unzip was_part3.zip -d was \
+    && unzip was.java7_part1.zip -d jdk && unzip was.java7_part2.zip -d jdk && unzip was.java7_part3.zip -d jdk
