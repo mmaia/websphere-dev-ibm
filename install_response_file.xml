@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<agent-input>
+  <variables>
+    <variable name='sharedLocation' value='/opt/IBM/IMShared'/>
+  </variables>
+  <server>
+    <repository location='/tmp/was'/>
+  </server>
+  <profile id='IBM WebSphere Application Server V8.5' installLocation='/opt/IBM/WebSphere8.5.5_Dev/AppServer'>
+    <data key='eclipseLocation' value='/opt/IBM/WebSphere8.5.5_Dev/AppServer'/>
+    <data key='user.import.profile' value='false'/>
+    <data key='cic.selector.os' value='linux'/>
+    <data key='cic.selector.arch' value='x86'/>
+    <data key='cic.selector.ws' value='gtk'/>
+    <data key='cic.selector.nl' value='en'/>
+  </profile>
+  <install modify='false'>
+    <!-- IBM WebSphere Application Server for Developers (ILAN) 8.5.5.0 -->
+    <offering profile='IBM WebSphere Application Server V8.5' id='com.ibm.websphere.DEVELOPERSILAN.v85' version='8.5.5000.20130514_1044' features='core.feature,ejbdeploy,thinclient,embeddablecontainer,com.ibm.sdk.6_64bit,samples' installFixes='none'/>
+  </install>
+  <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
+  <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
+  <preference name='com.ibm.cic.common.core.preferences.readTimeout' value='45'/>
+  <preference name='com.ibm.cic.common.core.preferences.downloadAutoRetryCount' value='0'/>
+  <preference name='offering.service.repositories.areUsed' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.ssl.nonsecureMode' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication' value='false'/>
+  <preference name='http.ntlm.auth.kind' value='NTLM'/>
+  <preference name='http.ntlm.auth.enableIntegrated.win32' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.keepFetchedFiles' value='false'/>
+  <preference name='PassportAdvantageIsEnabled' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.searchForUpdates' value='false'/>
+  <preference name='com.ibm.cic.agent.ui.displayInternalVersion' value='false'/>
+  <preference name='com.ibm.cic.common.sharedUI.showErrorLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showWarningLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showNoteLog' value='true'/>
+</agent-input>
