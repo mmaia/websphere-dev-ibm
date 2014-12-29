@@ -22,8 +22,10 @@
 #
 # Than you can run the container for the first time using:
 # docker run -i -t -p 9080:9080 -p 9060:9060 --name mmaia-was-dev mmaia/was-dev:v1 /bin/bash
+# the command above creates the image with the name mmaia-was-dev, you can change it to whatever you want.
 #
-# Once you've runned the container and it's already created, use start instead of run.
+# Once you've runned the container and it's already created, use start instead of run.(replace the $CONTAINER_NAME) with
+# the name you have picked during the run command above.
 # docker start $CONTAINER_NAME /bin/bash
 #
 # and if needed to attach to the running container
@@ -35,8 +37,8 @@ MAINTAINER Marcos Maia "mpais@br.ibm.com / maia.marcos@gmail.com"
 #copy files to docker image
 COPY *.zip tmp/
 
-#preparing the files to install, unzipping and creating correct directory structures for WAS  and deleting the
-#zip files that are not necessary anymore so disk image doesn't get without space (docker limit to 10GB by now)
+# preparing the files to install, unzipping and creating correct directory structures for WAS  and deleting the
+# zip files that are not necessary anymore so disk image doesn't get without space (docker limit to 10GB by now)
 RUN cd tmp && mkdir was && unzip was_part1.zip -d was && rm -rf was_part1.zip && unzip was_part2.zip -d was  \
     && rm -rf was_part2.zip && unzip was_part3.zip -d was && rm -rf was_part3.zip
 
